@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     private float h, v;
+    private bool click;
+    public GameObject laser; 
+    public Transform l1, l2;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,14 @@ public class Main : MonoBehaviour
     void MoveShip(){
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
+        click = Input.GetMouseButtonDown(0);
+
         transform.Translate(h * Time.deltaTime * 6, 0, 0, Space.World);
         transform.Translate(0, v * Time.deltaTime * 6, 0, Space.World);
+
+        if(click){
+            Shoot();
+        }   
     }
 
     void FaceMouse()
@@ -35,5 +44,10 @@ public class Main : MonoBehaviour
                 mousePos.y - transform.position.y
         );
         transform.up = direction;
+    }
+
+    void Shoot(){
+        Instantiate<GameObject>(laser, l1.position, l1.rotation);
+        Instantiate<GameObject>(laser, l2.position, l2.rotation);
     }
 }
