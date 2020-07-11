@@ -7,6 +7,7 @@ public class LaserBeam : MonoBehaviour
     private float speed;
     private Rigidbody2D rigidbody;
     // Start is called before the first frame update
+    private Vector2 move;
     void Start()
     {
         speed = 15.0f;
@@ -22,7 +23,7 @@ public class LaserBeam : MonoBehaviour
     }
 
     IEnumerator Dissappear(){
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 }

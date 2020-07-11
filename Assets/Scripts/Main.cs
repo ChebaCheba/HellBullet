@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
+    private int speed;
     private float h, v;
     private bool click;
     public GameObject laser; 
@@ -12,7 +13,7 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        speed = 6;
     }
 
     // Update is called once per frame
@@ -27,8 +28,8 @@ public class Main : MonoBehaviour
         v = Input.GetAxis("Vertical");
         click = Input.GetMouseButtonDown(0);
 
-        transform.Translate(h * Time.deltaTime * 6, 0, 0, Space.World);
-        transform.Translate(0, v * Time.deltaTime * 6, 0, Space.World);
+        transform.Translate(h * Time.deltaTime * speed, 0, 0, Space.World);
+        transform.Translate(0, v * Time.deltaTime * speed, 0, Space.World);
 
         if(click){
             Shoot();
