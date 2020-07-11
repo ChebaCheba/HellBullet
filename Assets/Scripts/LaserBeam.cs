@@ -9,7 +9,7 @@ public class LaserBeam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10.0f;
+        speed = 15.0f;
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.AddForce(transform.up * speed, ForceMode2D.Impulse);
         StartCoroutine(Dissappear());
