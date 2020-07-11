@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBeam : MonoBehaviour
+public class EnemyBeam : MonoBehaviour
 {
+    // Start is called before the first frame update
     private float speed;
     private Rigidbody2D rigidbody;
     // Start is called before the first frame update
@@ -23,14 +24,14 @@ public class LaserBeam : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.layer == 10)
+        if(collision.gameObject.layer == 9)
         {
             Destroy(gameObject);
         }
     }
 
     IEnumerator Dissappear(){
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         Destroy(gameObject);
     }
 }
