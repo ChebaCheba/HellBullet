@@ -265,6 +265,8 @@ MonoBehaviour:
   laser: {fileID: 7210761067940531769, guid: 63fe71ee36fa23f42970ca9c60c8923e, type: 3}
   l1: {fileID: 172841592}
   l2: {fileID: 709756981}
+  minX: -9
+  maxX: 9
 --- !u!212 &345104970
 SpriteRenderer:
   m_ObjectHideFlags: 0
