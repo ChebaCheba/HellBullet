@@ -12,9 +12,14 @@ public class Enemy : MonoBehaviour
     private int health;
     public GameObject laser; 
     public Transform l1;
+    
+    public GameObject ge;
+    private GenerateEnemies script;
     // Start is called before the first frame update
     void Start()
     {
+        ge = GameObject.Find("Spawn");
+        script = ge.GetComponent<GenerateEnemies>();
         mainShip = GameObject.Find("fighter").transform;
         rigidbody = this.GetComponent<Rigidbody2D>();
         health = 5;
@@ -49,6 +54,7 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.layer == 8)
         {
             if(health<=0){
+                script.subCount();
                 Destroy(gameObject);
             } else {
                 health -= 1;
